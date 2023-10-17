@@ -17,7 +17,10 @@ APPROVED_JOBS = [
 
 class Person:
     def __init__(self, name = 'mike', job = 'Admin' ):
-        self.name = name
+        if isinstance(name, str) and 1 <= len(name) <= 25:
+            self._name = name.title()
+        else:
+            print("Name must be string between 1 and 25 characters.")
         self.job = job
         
     def get_name(self):
